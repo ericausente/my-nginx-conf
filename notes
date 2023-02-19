@@ -1,6 +1,8 @@
-Debugging NGINX License
+===Debugging NGINX License===
 
 curl --cert /etc/ssl/nginx/nginx-repo.crt --key /etc/ssl/nginx/nginx-repo.key https://pkgs.nginx.com/debug
 01E810|/O=NGINX Inc/CN=nginx client authentication CA2 repo:waf-app-protect client:T000123815 ne:0 c:/0 acm: a:/0 m:/0 o:/0 p:/0
 
 c is instance manager, a is app-protect, m is modsecurity, o is opensource,  p is plus
+
+

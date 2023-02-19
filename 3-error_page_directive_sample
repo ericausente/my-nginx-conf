@@ -9,3 +9,18 @@ server {
        return 500;
    }
 }
+
+
+#######################################################
+#                                                     #
+#     $ curl http://localhost -i                      #
+#     HTTP/1.1 503 Service Temporarily Unavailable    #
+#     Server: nginx/1.23.2                            #
+#     Date: Sun, 19 Feb 2023 03:07:55 GMT             #
+#     Content-Type: application/octet-stream          #
+#     Content-Length: 8                               #
+#     Connection: close                               #
+#                                                     #
+#     Rejected[                                       #
+#                                                     #
+#######################################################

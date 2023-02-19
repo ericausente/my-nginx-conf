@@ -1,0 +1,34 @@
+# Sometimes, Nginx access logs can become very noisy. But, they can also have valuable informations. 
+# If you want to simply log 400 and 500 errors to help you identify issues 
+# (internal errors, 404’s, authorization errors, etc), you can use the following snippet for it.
+
+map $status $loggable
+{
+    ~^[2] 0;
+    ~^[3] 0;
+    default 1;
+}
+
+server {
+   listen 80;
+   server_name localhost;
+   access_log /var/log/nginx/access.log combined if=$loggable;
+   error_page  500 502 503 504 = @error503;
+   location @error503 {
+       return 503 'Rejected';
+   }
+   location / {
+       return 500;
+   }
+   location /ok {
+       return 200 "OK";
+}
+}
+
+
+#  tail -f /var/log/nginx/access.log
+#  $ curl http://localhost/ok   --> Not logged 
+#  $ curl http://localhost/ok   --> Logged
+#
+#  If you want to start logging other type of errors or more specific status codes,
+#  you just need to adjust the regex and return either 0 (to not log in the access log) or 1 (to log in the access log).

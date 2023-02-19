@@ -27,7 +27,7 @@ server {
 
 
 #  tail -f /var/log/nginx/access.log
-#  $ curl http://localhost/ok   --> Not logged 
+#  $ curl http://localhost/   --> Not logged 
 #  $ curl http://localhost/ok   --> Logged
 #
 #  If you want to start logging other type of errors or more specific status codes,
